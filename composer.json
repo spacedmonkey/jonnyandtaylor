@@ -1,0 +1,37 @@
+{
+    "name": "spacedmonkey/jonnyandtaylor",
+    "type": "wordpress-theme",
+    "description": "WordPress theme for jonnyandtaylor.com",
+    "keywords": [
+        "WordPress",
+        "Themes"
+    ],
+    "homepage": "https://github.com/spacedmonkey/jonnyandtaylor",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Contributors",
+            "homepage": "https://github.com/spacedmonkey/jonnyandtaylor/graphs/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+	"require-dev": {
+	  "wp-cli/i18n-command": "^2.2.5",
+	  "automattic/vipwpcs": "^2.2",
+	  "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+	  "sirbrillig/phpcs-variable-analysis": "^2.10",
+	  "wp-coding-standards/wpcs": "^2.3",
+	  "phpcompatibility/phpcompatibility-wp": "^2.1"
+	},
+	"scripts": {
+	  "lint": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+	  "format": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf",
+	  "make-pot": "wp i18n make-pot . languages/react-revolution.pot --exclude=assets"
+	},
+    "support": {
+        "issues": "https://github.com/spacedmonkey/jonnyandtaylor/issues",
+        "source": "https://github.com/spacedmonkey/jonnyandtaylor"
+    }
+}
