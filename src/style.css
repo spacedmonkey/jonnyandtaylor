@@ -1,13 +1,3 @@
-@import "../node_modules/normalize.css/normalize.css";
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Sorts+Mill+Goudy&display=swap');
-
-body{
-	font-family: 'Sorts Mill Goudy', serif;
-	max-width: 800px;
-	margin: auto !important;
-	line-height: 2em;
-	letter-spacing: 5px;
-}
 
 /*--------------------------------------------------------------
 # Layouts
@@ -91,7 +81,7 @@ body{
 .posts-navigation,
 .site-main
 .post-navigation {
-	margin: 0 0 1.5em;
+	margin: 0 0 var(--wp--custom--spacing--outer);
 }
 
 .comment-navigation .nav-links,
@@ -121,7 +111,7 @@ body{
 
 .post,
 .page {
-	margin: 0 0 1.5em;
+	margin: 0 0 var(--wp--custom--spacing--outer);
 }
 
 .updated:not(.published) {
@@ -131,12 +121,12 @@ body{
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	margin: var(--wp--custom--spacing--outer) 0 0;
 }
 
 .page-links {
 	clear: both;
-	margin: 0 0 1.5em;
+	margin: 0 0 var(--wp--custom--spacing--outer);
 }
 
 /* Comments
@@ -152,7 +142,7 @@ body{
 /* Widgets
 --------------------------------------------- */
 .widget {
-	margin: 0 0 1.5em;
+	margin: 0 0 var(--wp--custom--spacing--outer);
 }
 
 .widget select {
@@ -178,7 +168,7 @@ body{
 /* Captions
 --------------------------------------------- */
 .wp-caption {
-	margin-bottom: 1.5em;
+	margin-bottom: var(--wp--custom--spacing--outer);
 	max-width: 100%;
 }
 
@@ -199,9 +189,9 @@ body{
 /* Galleries
 --------------------------------------------- */
 .gallery {
-	margin-bottom: 1.5em;
+	margin-bottom: var(--wp--custom--spacing--outer);
 	display: grid;
-	grid-gap: 1.5em;
+	grid-gap: var(--wp--custom--spacing--outer);
 }
 
 .gallery-item {
@@ -323,8 +313,8 @@ body{
 	float: left;
 
 	/*rtl:ignore*/
-	margin-right: 1.5em;
-	margin-bottom: 1.5em;
+	margin-right: var(--wp--custom--spacing--outer);
+	margin-bottom: var(--wp--custom--spacing--outer);
 }
 
 .alignright {
@@ -333,8 +323,8 @@ body{
 	float: right;
 
 	/*rtl:ignore*/
-	margin-left: 1.5em;
-	margin-bottom: 1.5em;
+	margin-left: var(--wp--custom--spacing--outer);
+	margin-bottom: var(--wp--custom--spacing--outer);
 }
 
 .aligncenter {
@@ -342,5 +332,5 @@ body{
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 1.5em;
+	margin-bottom: var(--wp--custom--spacing--outer);
 }

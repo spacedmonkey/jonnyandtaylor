@@ -9,7 +9,7 @@
 
 if ( ! defined( 'JAT_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'JAT_VERSION', '1.0.0' );
+	define( 'JAT_VERSION', '2.0.0' );
 }
 
 if ( ! function_exists( 'jonny_and_taylor_setup' ) ) :
@@ -29,77 +29,20 @@ if ( ! function_exists( 'jonny_and_taylor_setup' ) ) :
 		 */
 		load_theme_textdomain( 'jonny-and-taylor', get_template_directory() . '/languages' );
 
-		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
+		// Add support for editor styles.
+		add_theme_support( 'editor-styles' );
 
-		/*
-		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
-		 */
-		add_theme_support( 'title-tag' );
+		// Enqueue editor styles and fonts.
+		add_editor_style( array(
+			'style.css',
+			jonny_and_taylor_fonts_url()
+		) );
 
-		/*
-		 * Enable support for Post Thumbnails on posts and pages.
-		 *
-		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		 */
-		add_theme_support( 'post-thumbnails' );
+		// Disable loading core block inline styles.
+		add_filter( 'should_load_separate_core_block_assets', '__return_false' );
 
-		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus(
-			array(
-				'menu-1' => esc_html__( 'Primary', 'jonny-and-taylor' ),
-			)
-		);
-
-		/*
-		 * Switch default core markup for search form, comment form, and comments
-		 * to output valid HTML5.
-		 */
-		add_theme_support(
-			'html5',
-			array(
-				'search-form',
-				'comment-form',
-				'comment-list',
-				'gallery',
-				'caption',
-				'style',
-				'script',
-			)
-		);
-
-		// Set up the WordPress core custom background feature.
-		add_theme_support(
-			'custom-background',
-			apply_filters(
-				'jonny_and_taylor_custom_background_args',
-				array(
-					'default-color' => 'ffffff',
-					'default-image' => '',
-				)
-			)
-		);
-
-		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
-
-		/**
-		 * Add support for core custom logo.
-		 *
-		 * @link https://codex.wordpress.org/Theme_Logo
-		 */
-		add_theme_support(
-			'custom-logo',
-			array(
-				'height'      => 250,
-				'width'       => 250,
-				'flex-width'  => true,
-				'flex-height' => true,
-			)
-		);
+		// Remove core block patterns.
+		remove_theme_support( 'core-block-patterns' );
 	}
 endif;
 add_action( 'after_setup_theme', 'jonny_and_taylor_setup' );
@@ -116,25 +59,19 @@ function jonny_and_taylor_content_width() {
 }
 add_action( 'after_setup_theme', 'jonny_and_taylor_content_width', 0 );
 
+
 /**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ * @return string|null
  */
-function jonny_and_taylor_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Sidebar', 'jonny-and-taylor' ),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'jonny-and-taylor' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
+function jonny_and_taylor_fonts_url() {
+	$fonts = [
+		'family=Parisienne:wght@400',
+		'family=Cormorant+Garamond:wght@100;200;300;400;500;600;700;800;900'
+	];
+
+	// Make a single request for all Google Fonts.
+	return esc_url_raw( 'https://fonts.googleapis.com/css2?' . implode( '&', array_unique( $fonts ) ) . '&display=swap' );
 }
-add_action( 'widgets_init', 'jonny_and_taylor_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
@@ -150,6 +87,8 @@ function jonny_and_taylor_scripts() {
 	wp_add_inline_script( 'jonny-and-taylor-script', sprintf( 'var react_theme_settings = %s', wp_json_encode( [] ) ), 'before' );
 
 	wp_set_script_translations( 'jonny-and-taylor-script', 'jonny-and-taylor' );
+
+	wp_enqueue_style( 'jonny-and-taylor-fonts', jonny_and_taylor_fonts_url(), array(), null );
 }
 add_action( 'wp_enqueue_scripts', 'jonny_and_taylor_scripts' );
 
