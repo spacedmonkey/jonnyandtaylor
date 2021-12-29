@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Custom template tags for this theme
+ *
+ * Eventually, some of the functionality here could be replaced by core features.
+ *
+ * @package Jonny_and_Taylor
+ */
 
 if ( ! function_exists( 'wp_body_open' ) ) :
 	/**

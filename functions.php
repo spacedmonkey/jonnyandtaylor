@@ -33,10 +33,12 @@ if ( ! function_exists( 'jonny_and_taylor_setup' ) ) :
 		add_theme_support( 'editor-styles' );
 
 		// Enqueue editor styles and fonts.
-		add_editor_style( array(
-			'style.css',
-			jonny_and_taylor_fonts_url()
-		) );
+		add_editor_style(
+			array(
+				'style.css',
+				jonny_and_taylor_fonts_url(),
+			)
+		);
 
 		// Disable loading core block inline styles.
 		add_filter( 'should_load_separate_core_block_assets', '__return_false' );
@@ -61,12 +63,14 @@ add_action( 'after_setup_theme', 'jonny_and_taylor_content_width', 0 );
 
 
 /**
+ * Get font url.
+ *
  * @return string|null
  */
 function jonny_and_taylor_fonts_url() {
 	$fonts = [
 		'family=Parisienne:wght@400',
-		'family=Cormorant+Garamond:wght@100;200;300;400;500;600;700;800;900'
+		'family=Cormorant+Garamond:wght@100;200;300;400;500;600;700;800;900',
 	];
 
 	// Make a single request for all Google Fonts.
@@ -79,7 +83,7 @@ function jonny_and_taylor_fonts_url() {
 function jonny_and_taylor_scripts() {
 	$asset = jonny_and_taylor_asset_metadata( 'index' );
 	wp_enqueue_style( 'jonny-and-taylor-vendor', get_theme_file_uri( '/build/index.css' ), array(), $asset['version'] );
-	wp_enqueue_style( 'jonny-and-taylor-style', get_theme_file_uri( '/build/style-index.css' ), array('jonny-and-taylor-vendor'), $asset['version'] );
+	wp_enqueue_style( 'jonny-and-taylor-style', get_theme_file_uri( '/build/style-index.css' ), array( 'jonny-and-taylor-vendor' ), $asset['version'] );
 	wp_style_add_data( 'jonny-and-taylor-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'jonny-and-taylor-script', get_theme_file_uri( '/build/index.js' ), $asset['dependencies'], $asset['version'], true );
@@ -88,7 +92,7 @@ function jonny_and_taylor_scripts() {
 
 	wp_set_script_translations( 'jonny-and-taylor-script', 'jonny-and-taylor' );
 
-	wp_enqueue_style( 'jonny-and-taylor-fonts', jonny_and_taylor_fonts_url(), array(), null );
+	wp_enqueue_style( 'jonny-and-taylor-fonts', jonny_and_taylor_fonts_url(), array(), $asset['version'] );
 }
 add_action( 'wp_enqueue_scripts', 'jonny_and_taylor_scripts' );
 
