@@ -72,7 +72,6 @@ function jonny_and_taylor_fonts_url() {
 		'family=Parisienne:wght@400',
 		'family=Cormorant+Garamond:wght@100;200;300;400;500;600;700;800;900',
 	];
-
 	// Make a single request for all Google Fonts.
 	return esc_url_raw( 'https://fonts.googleapis.com/css2?' . implode( '&', array_unique( $fonts ) ) . '&display=swap' );
 }
@@ -92,7 +91,7 @@ function jonny_and_taylor_scripts() {
 
 	wp_set_script_translations( 'jonny-and-taylor-script', 'jonny-and-taylor' );
 
-	wp_enqueue_style( 'jonny-and-taylor-fonts', jonny_and_taylor_fonts_url(), array(), $asset['version'] );
+	wp_enqueue_style( 'jonny-and-taylor-fonts', jonny_and_taylor_fonts_url(), array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 }
 add_action( 'wp_enqueue_scripts', 'jonny_and_taylor_scripts' );
 
