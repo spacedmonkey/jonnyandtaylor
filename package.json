@@ -23,7 +23,5 @@
 	"devDependencies": {
 		"@wordpress/scripts": "^19.2.2"
 	},
-	"dependencies": {
-		"normalize.css": "^8.0.1"
-	}
+	"dependencies": {}
 }

@@ -112,11 +112,17 @@
 					"slug": "tertiary",
 					"color": "#F6F6F6",
 					"name": "Tertiary"
+				},
+				{
+				  "slug": "border",
+				  "color": "#808080",
+				  "name": "Border"
 				}
 			]
 		},
 		"custom": {
 			"spacing": {
+				"tiny": "max(0.5rem, 1.5vw)",
 				"small": "max(1.25rem, 5vw)",
 				"medium": "clamp(2rem, 8vw, calc(4 * var(--wp--style--block-gap)))",
 				"large": "clamp(4rem, 10vw, 8rem)",
@@ -193,7 +199,7 @@
 			]
 		},
 		"layout": {
-			"contentSize": "650px",
+			"contentSize": "800px",
 			"wideSize": "1000px"
 		}
 	},
