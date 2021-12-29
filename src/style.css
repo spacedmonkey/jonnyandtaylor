@@ -1,88 +1,53 @@
-@import "../node_modules/normalize.css/normalize.css";
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Sorts+Mill+Goudy&display=swap');
 
-body{
-	font-family: 'Sorts Mill Goudy', serif;
-	max-width: 800px;
-	margin: auto !important;
-	line-height: 2em;
-	letter-spacing: 5px;
-}
 
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
 
+a {
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.25ch;
+}
+
+a:hover,
+a:focus {
+	color: var(--wp--preset--color--primary) !important;
+	text-decoration-style: dashed;
+}
+
+a:active {
+	color: var(--wp--preset--color--seconddary) !important;
+	text-decoration: none;
+}
+
+
+.is-style-navigation {
+	border-width: 1px 0 !important;
+	margin-top: 0 !important;
+}
+
+.is-style-footer {
+	border-width: 1px 0 0 !important;
+	margin-top: var(--wp--custom--spacing--outer, 1.5rem) !important;
+	padding-top: var(--wp--custom--spacing--tiny, 0.5rem) !important;
+}
+
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
 
-/* Navigation
---------------------------------------------- */
-.main-navigation {
-	display: block;
-	width: 100%;
+.wp-site-blocks {
+	border: 1px solid var(--wp--preset--color--border);
+	padding: 45px;
+	margin: 45px;
 }
 
-.main-navigation ul {
-	display: none;
-	list-style: none;
-	margin: 0;
-	padding-left: 0;
-}
+@media screen and (max-width: 500px) {
 
-.main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	float: left;
-	position: absolute;
-	top: 100%;
-	left: -999em;
-	z-index: 99999;
-}
-
-.main-navigation ul ul ul {
-	left: -999em;
-	top: 0;
-}
-
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
-	display: block;
-	left: auto;
-}
-
-.main-navigation ul ul a {
-	width: 200px;
-}
-
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-	left: auto;
-}
-
-.main-navigation li {
-	position: relative;
-}
-
-.main-navigation a {
-	display: block;
-	text-decoration: none;
-}
-
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
-
-@media screen and (min-width: 37.5em) {
-
-	.menu-toggle {
-		display: none;
-	}
-
-	.main-navigation ul {
-		display: flex;
+	.wp-site-blocks {
+		border: 0 none;
+		padding: 15px;
+		margin: 15px;
 	}
 }
 
@@ -91,7 +56,7 @@ body{
 .posts-navigation,
 .site-main
 .post-navigation {
-	margin: 0 0 1.5em;
+	margin: 0 0 var(--wp--custom--spacing--outer);
 }
 
 .comment-navigation .nav-links,
@@ -121,7 +86,7 @@ body{
 
 .post,
 .page {
-	margin: 0 0 1.5em;
+	margin: 0 0 var(--wp--custom--spacing--outer);
 }
 
 .updated:not(.published) {
@@ -131,12 +96,12 @@ body{
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	margin: var(--wp--custom--spacing--outer) 0 0;
 }
 
 .page-links {
 	clear: both;
-	margin: 0 0 1.5em;
+	margin: 0 0 var(--wp--custom--spacing--outer);
 }
 
 /* Comments
@@ -147,16 +112,6 @@ body{
 
 .bypostauthor {
 	display: block;
-}
-
-/* Widgets
---------------------------------------------- */
-.widget {
-	margin: 0 0 1.5em;
-}
-
-.widget select {
-	max-width: 100%;
 }
 
 /* Media
@@ -178,7 +133,7 @@ body{
 /* Captions
 --------------------------------------------- */
 .wp-caption {
-	margin-bottom: 1.5em;
+	margin-bottom: var(--wp--custom--spacing--outer);
 	max-width: 100%;
 }
 
@@ -190,18 +145,15 @@ body{
 
 .wp-caption .wp-caption-text {
 	margin: 0.8075em 0;
-}
-
-.wp-caption-text {
 	text-align: center;
 }
 
 /* Galleries
 --------------------------------------------- */
 .gallery {
-	margin-bottom: 1.5em;
+	margin-bottom: var(--wp--custom--spacing--outer);
 	display: grid;
-	grid-gap: 1.5em;
+	grid-gap: var(--wp--custom--spacing--outer);
 }
 
 .gallery-item {
@@ -247,7 +199,7 @@ body{
 }
 
 
-.wp-block-image img{
+.wp-block-image img {
 	height: auto;
 }
 
@@ -323,8 +275,8 @@ body{
 	float: left;
 
 	/*rtl:ignore*/
-	margin-right: 1.5em;
-	margin-bottom: 1.5em;
+	margin-right: var(--wp--custom--spacing--outer);
+	margin-bottom: var(--wp--custom--spacing--outer);
 }
 
 .alignright {
@@ -333,8 +285,8 @@ body{
 	float: right;
 
 	/*rtl:ignore*/
-	margin-left: 1.5em;
-	margin-bottom: 1.5em;
+	margin-left: var(--wp--custom--spacing--outer);
+	margin-bottom: var(--wp--custom--spacing--outer);
 }
 
 .aligncenter {
@@ -342,5 +294,5 @@ body{
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 1.5em;
+	margin-bottom: var(--wp--custom--spacing--outer);
 }

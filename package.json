@@ -21,10 +21,7 @@
 	"author": "Jonathan Harris",
 	"license": "ISC",
 	"devDependencies": {
-		"@wordpress/scripts": "^19.2.2",
-		"mini-css-extract-plugin": "^2.4.5"
+		"@wordpress/scripts": "^19.2.2"
 	},
-	"dependencies": {
-		"normalize.css": "^8.0.1"
-	}
+	"dependencies": {}
 }
