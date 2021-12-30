@@ -1,0 +1,9 @@
+{
+    "extends": "@wordpress/stylelint-config",
+	"rules": {
+	  "no-duplicate-selectors": null,
+	  "selector-class-pattern": null,
+	  "no-descending-specificity": null,
+	  "font-family-no-duplicate-names": null
+	}
+  }
