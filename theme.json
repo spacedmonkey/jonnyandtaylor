@@ -100,12 +100,12 @@
 				},
 				{
 					"slug": "primary",
-					"color": "#1a4548",
+					"color": "#111111",
 					"name": "Primary"
 				},
 				{
 					"slug": "secondary",
-					"color": "#ffe2c7",
+					"color": "#0d66c2",
 					"name": "Secondary"
 				},
 				{
@@ -168,6 +168,11 @@
 				  "fontFamily": "'Cormorant Garamond', serif",
 				  "name": "Cormorant Garamond",
 				  "slug": "cormorant-garamond"
+				},
+				{
+				  "fontFamily": "'Nunito Sans', sans-serif",
+				  "name": "Nunito Sans",
+				  "slug": "nunito-sans"
 				}
 			],
 			"fontSizes": [
@@ -214,8 +219,16 @@
 					"text": "var(--wp--preset--color--background)"
 				},
 				"typography": {
-					"fontSize": "var(--wp--preset--typography--font-size--normal)"
+					"fontSize": "var(--wp--preset--typography--font-size--normal)",
+				    "fontFamily": "var(--wp--preset--font-family--nunito-sans)"
 				}
+			},
+			"core/navigation": {
+			  "typography": {
+				"fontFamily": "var(--wp--preset--font-family--nunito-sans)",
+				"fontWeight": "200",
+				"fontSize": "var(--wp--custom--typography--font-size--normal)"
+			  }
 			},
 			"core/post-title": {
 				"typography": {

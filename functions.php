@@ -35,7 +35,7 @@ if ( ! function_exists( 'jonny_and_taylor_setup' ) ) :
 		// Enqueue editor styles and fonts.
 		add_editor_style(
 			array(
-				'style.css',
+				'/assets/theme.css',
 				jonny_and_taylor_fonts_url(),
 			)
 		);
@@ -70,6 +70,7 @@ add_action( 'after_setup_theme', 'jonny_and_taylor_content_width', 0 );
 function jonny_and_taylor_fonts_url() {
 	$fonts = [
 		'family=Parisienne:wght@400',
+		'family=Nunito+Sans:wght@200',
 		'family=Cormorant+Garamond:wght@100;200;300;400;500;600;700;800;900',
 	];
 	// Make a single request for all Google Fonts.
@@ -80,12 +81,11 @@ function jonny_and_taylor_fonts_url() {
  * Enqueue scripts and styles.
  */
 function jonny_and_taylor_scripts() {
-	$asset = jonny_and_taylor_asset_metadata( 'index' );
-	wp_enqueue_style( 'jonny-and-taylor-vendor', get_theme_file_uri( '/build/index.css' ), array(), $asset['version'] );
-	wp_enqueue_style( 'jonny-and-taylor-style', get_theme_file_uri( '/build/style-index.css' ), array( 'jonny-and-taylor-vendor' ), $asset['version'] );
+	$asset = jonny_and_taylor_asset_metadata( 'theme' );
+	wp_enqueue_style( 'jonny-and-taylor-styles', get_theme_file_uri( '/assets/theme.css' ), array(), $asset['version'] );
 	wp_style_add_data( 'jonny-and-taylor-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'jonny-and-taylor-script', get_theme_file_uri( '/build/index.js' ), $asset['dependencies'], $asset['version'], true );
+	wp_enqueue_script( 'jonny-and-taylor-script', get_theme_file_uri( '/assets/theme.js' ), $asset['dependencies'], $asset['version'], true );
 
 	wp_add_inline_script( 'jonny-and-taylor-script', sprintf( 'var react_theme_settings = %s', wp_json_encode( [] ) ), 'before' );
 
@@ -95,7 +95,20 @@ function jonny_and_taylor_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'jonny_and_taylor_scripts' );
 
+/**
+ * Disable the emoji's
+ */
+function disable_emojis() {
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
+	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+}
 
+add_action( 'init', 'disable_emojis' );
 /**
  * Get metadata from generated file.
  *
@@ -104,7 +117,7 @@ add_action( 'wp_enqueue_scripts', 'jonny_and_taylor_scripts' );
  * @return array
  */
 function jonny_and_taylor_asset_metadata( $slug ) {
-	$asset_file            = get_theme_file_path( 'build/' . $slug . '.asset.php' );
+	$asset_file            = get_theme_file_path( 'assets/' . $slug . '.asset.php' );
 	$asset                 = is_readable( $asset_file ) ? require $asset_file : array();
 	$asset['dependencies'] = isset( $asset['dependencies'] ) ? $asset['dependencies'] : array();
 	$asset['version']      = isset( $asset['version'] ) ? $asset['version'] : JAT_VERSION;
@@ -122,4 +135,8 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
+
+/**
+ * Add block styles.
+ */
 require get_template_directory() . '/inc/block-styles.php';

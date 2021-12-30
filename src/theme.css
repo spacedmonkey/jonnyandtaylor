@@ -11,15 +11,21 @@ a {
 
 a:hover,
 a:focus {
-	color: var(--wp--preset--color--primary) !important;
+	color: var(--wp--preset--color--secondary) !important;
 	text-decoration-style: dashed;
 }
 
 a:active {
-	color: var(--wp--preset--color--seconddary) !important;
+	color: var(--wp--preset--color--secondary) !important;
 	text-decoration: none;
 }
 
+
+footer{
+	font-family: var(--wp--preset--font-family--nunito-sans);
+	font-weight: 200;
+	font-size: var(--wp--custom--typography--font-size--normal);
+}
 
 .is-style-navigation {
 	border-width: 1px 0 !important;
@@ -102,6 +108,34 @@ a:active {
 .page-links {
 	clear: both;
 	margin: 0 0 var(--wp--custom--spacing--outer);
+}
+
+/* Navigation
+--------------------------------------------- */
+
+.wp-block-navigation a, a:active {
+	color: var(--wp--preset--color--primary) !important;
+}
+.wp-block-navigation
+a:hover,
+.wp-block-navigation
+a:focus {
+	color: var(--wp--preset--color--secondary) !important;
+}
+
+
+/* Button
+--------------------------------------------- */
+.is-style-outline > .wp-block-button__link:not(.has-background), .wp-block-button__link.is-style-outline:not(.has-background){
+	color: var(--wp--preset--color--primary);
+	border-color: var(--wp--preset--color--primary);
+}
+.is-style-outline > .wp-block-button__link:not(.has-background):active,
+.wp-block-button__link.is-style-outline:not(.has-background):active,
+.is-style-outline > .wp-block-button__link:not(.has-background):hover,
+.wp-block-button__link.is-style-outline:not(.has-background):hover{
+	color: var(--wp--preset--color--secondary) !important;
+	border-color: var(--wp--preset--color--secondary);
 }
 
 /* Comments

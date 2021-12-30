@@ -1,4 +1,4 @@
 /**
  * Internal dependencies
  */
-import './style.css';
+import './theme.css';
