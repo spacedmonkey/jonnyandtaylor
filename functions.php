@@ -70,7 +70,7 @@ add_action( 'after_setup_theme', 'jonny_and_taylor_content_width', 0 );
 function jonny_and_taylor_fonts_url() {
 	$fonts = [
 		'family=Parisienne:wght@400',
-		'family=Nunito+Sans:wght@200',
+		'family=Nunito+Sans:wght@200;700',
 		'family=Cormorant+Garamond:wght@100;200;300;400;500;600;700;800;900',
 	];
 	// Make a single request for all Google Fonts.

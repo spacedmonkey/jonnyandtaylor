@@ -368,3 +368,30 @@ a:focus {
 	margin-right: auto;
 	margin-bottom: var(--wp--custom--spacing--outer);
 }
+
+
+.forminator-field {
+	display: block;
+	font-family: var(--wp--preset--font-family--nunito-sans);
+}
+
+.forminator-field .forminator-label {
+	font-weight: 700;
+}
+
+.forminator-field .forminator-label,
+.forminator-field .forminator-input,
+.forminator-field .forminator-select--field,
+.forminator-field .forminator-textarea,
+.forminator-field .forminator-description {
+	display: block;
+	width: 100%;
+}
+
+.forminator-field .forminator-input,
+.forminator-field .forminator-select--field,
+.forminator-field .forminator-textarea {
+	padding: 0.7em;
+	box-sizing: border-box;
+	font-size: 1em;
+}
