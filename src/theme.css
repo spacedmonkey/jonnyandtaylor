@@ -388,10 +388,25 @@ a:focus {
 	width: 100%;
 }
 
+.forminator-field .forminator-radio {
+	margin: 10px 20px 0 0;
+	display: inline-block;
+}
+
 .forminator-field .forminator-input,
 .forminator-field .forminator-select--field,
 .forminator-field .forminator-textarea {
 	padding: 0.7em;
 	box-sizing: border-box;
 	font-size: 1em;
+}
+
+.forminator-field .forminator-error-message {
+	color: var(--wp--preset--color--vivid-red);
+}
+
+.forminator-field .forminator-button {
+	border-color: var(--wp--preset--color--primary);
+	border-style: solid;
+	border-width: 2px;
 }
