@@ -55,7 +55,8 @@ footer {
 .wp-site-blocks {
 	border: 1px solid var(--wp--preset--color--border);
 	padding: 45px;
-	margin: 45px;
+	margin: 45px auto;
+	max-width: 1120px;
 }
 
 @media screen and (max-width: 500px) {
