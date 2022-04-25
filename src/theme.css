@@ -58,8 +58,14 @@ footer {
 	margin: 45px auto;
 	max-width: 1120px;
 }
+@media screen and (max-width: 1280px) {
+	.wp-site-blocks {
+		max-width: 1024px;
+		margin: 45px;
+	}
+}
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 641px) {
 
 	.wp-site-blocks {
 		border: 0 none;
