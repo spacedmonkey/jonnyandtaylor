@@ -72,9 +72,9 @@ function jonny_and_taylor_fonts_url() {
 function jonny_and_taylor_scripts() {
 	$asset = jonny_and_taylor_asset_metadata( 'theme' );
 	wp_register_style( 'jonny-and-taylor-styles', get_theme_file_uri( '/assets/theme.css' ), array(), $asset['version'] );
-	wp_style_add_data( 'jonny-and-taylor-style', 'rtl', 'replace' );
-	wp_style_add_data( 'jonny-and-taylor-style', 'path', get_theme_file_path( '/assets/theme.css' ) );
-	wp_enqueue_style( 'jonny-and-taylor-style' );
+	wp_style_add_data( 'jonny-and-taylor-styles', 'rtl', 'replace' );
+	wp_style_add_data( 'jonny-and-taylor-styles', 'path', get_theme_file_path( '/assets/theme.css' ) );
+	wp_enqueue_style( 'jonny-and-taylor-styles' );
 
 	wp_enqueue_script( 'jonny-and-taylor-script', get_theme_file_uri( '/assets/theme.js' ), $asset['dependencies'], $asset['version'], true );
 
