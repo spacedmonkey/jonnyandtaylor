@@ -40,9 +40,6 @@ if ( ! function_exists( 'jonny_and_taylor_setup' ) ) :
 			)
 		);
 
-		// Disable loading core block inline styles.
-		add_filter( 'should_load_separate_core_block_assets', '__return_false' );
-
 		// Remove core block patterns.
 		remove_theme_support( 'core-block-patterns' );
 	}
@@ -84,6 +81,7 @@ function jonny_and_taylor_scripts() {
 	$asset = jonny_and_taylor_asset_metadata( 'theme' );
 	wp_enqueue_style( 'jonny-and-taylor-styles', get_theme_file_uri( '/assets/theme.css' ), array(), $asset['version'] );
 	wp_style_add_data( 'jonny-and-taylor-style', 'rtl', 'replace' );
+	wp_style_add_data( 'jonny-and-taylor-style', 'path', get_theme_file_path( '/assets/theme.css' ) );
 
 	wp_enqueue_script( 'jonny-and-taylor-script', get_theme_file_uri( '/assets/theme.js' ), $asset['dependencies'], $asset['version'], true );
 
