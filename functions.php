@@ -21,14 +21,6 @@ if ( ! function_exists( 'jonny_and_taylor_setup' ) ) :
 	 * as indicating support for post thumbnails.
 	 */
 	function jonny_and_taylor_setup() {
-		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on Jonny and Taylor, use a find and replace
-		 * to change 'jonny-and-taylor' to the name of your theme in all the template files.
-		 */
-		load_theme_textdomain( 'jonny-and-taylor', get_template_directory() . '/languages' );
-
 		// Add support for editor styles.
 		add_theme_support( 'editor-styles' );
 
@@ -79,9 +71,10 @@ function jonny_and_taylor_fonts_url() {
  */
 function jonny_and_taylor_scripts() {
 	$asset = jonny_and_taylor_asset_metadata( 'theme' );
-	wp_enqueue_style( 'jonny-and-taylor-styles', get_theme_file_uri( '/assets/theme.css' ), array(), $asset['version'] );
+	wp_register_style( 'jonny-and-taylor-styles', get_theme_file_uri( '/assets/theme.css' ), array(), $asset['version'] );
 	wp_style_add_data( 'jonny-and-taylor-style', 'rtl', 'replace' );
 	wp_style_add_data( 'jonny-and-taylor-style', 'path', get_theme_file_path( '/assets/theme.css' ) );
+	wp_enqueue_style( 'jonny-and-taylor-style' );
 
 	wp_enqueue_script( 'jonny-and-taylor-script', get_theme_file_uri( '/assets/theme.js' ), $asset['dependencies'], $asset['version'], true );
 
